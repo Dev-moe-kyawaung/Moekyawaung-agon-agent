@@ -1,0 +1,195 @@
+/* =========================================================
+   01 · DESIGN TOKENS
+   2026 Design System · Android Dev Portfolio
+   Dark-mode-first · Kotlin Purple · Material You accents
+   ========================================================= */
+
+:root {
+  /* ── Color · Surfaces (charcoal stack) ───────────────── */
+  --color-bg:           #0a0a0f;
+  --color-bg-elevated:  #101019;
+  --color-bg-overlay:   #16161f;
+  --color-surface:      #13131c;
+  --color-surface-2:    #1a1a26;
+  --color-surface-3:    #22222f;
+  --color-line:         rgba(255, 255, 255, 0.06);
+  --color-line-strong:  rgba(255, 255, 255, 0.12);
+
+  /* ── Color · Text ─────────────────────────────────────── */
+  --color-text:         #f3f3f8;
+  --color-text-strong:  #ffffff;
+  --color-text-muted:   #a3a3b8;
+  --color-text-dim:     #6e6e85;
+  --color-text-faint:   #45455a;
+
+  /* ── Color · Brand · Kotlin Purple + Material You ────── */
+  --color-brand:        #7f52ff;   /* Kotlin Purple */
+  --color-brand-2:      #c711e1;   /* Magenta accent */
+  --color-brand-3:      #b388ff;   /* Lavender light  */
+  --color-brand-4:      #4f46e5;   /* Indigo deep     */
+  --color-brand-5:      #06b6d4;   /* Cyan Material You */
+
+  /* ── Color · Semantic ─────────────────────────────────── */
+  --color-success:      #4ade80;
+  --color-warning:      #fbbf24;
+  --color-danger:       #f87171;
+  --color-info:         #60a5fa;
+
+  /* ── Gradient · Material You dynamic ─────────────────── */
+  --grad-primary:       linear-gradient(135deg, #7f52ff 0%, #c711e1 100%);
+  --grad-accent:        linear-gradient(135deg, #c711e1 0%, #06b6d4 100%);
+  --grad-surface:       linear-gradient(135deg, #7f52ff 0%, #c711e1 50%, #06b6d4 100%);
+  --grad-text:          linear-gradient(135deg, #b388ff 0%, #ffffff 50%, #06b6d4 100%);
+  --grad-glow:          radial-gradient(circle at 50% 50%, rgba(127,82,255,0.45), transparent 70%);
+
+  /* ── Spacing · 8px grid ──────────────────────────────── */
+  --space-1:  0.25rem;  /* 4  */
+  --space-2:  0.5rem;   /* 8  */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.5rem;   /* 24 */
+  --space-6:  2rem;     /* 32 */
+  --space-7:  2.5rem;   /* 40 */
+  --space-8:  3rem;     /* 48 */
+  --space-9:  4rem;     /* 64 */
+  --space-10: 5rem;     /* 80 */
+  --space-11: 6rem;     /* 96 */
+  --space-12: 8rem;     /* 128 */
+
+  /* ── Typography · Fluid scale (clamp) ────────────────── */
+  --font-sans:  "Inter", "InterVariable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono:  "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+
+  --fs-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.85rem);
+  --fs-sm:   clamp(0.85rem,  0.82rem + 0.2vw,  1rem);
+  --fs-base: clamp(0.95rem,  0.9rem  + 0.25vw, 1.0625rem);
+  --fs-md:   clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  --fs-lg:   clamp(1.25rem,  1.15rem + 0.6vw, 1.5rem);
+  --fs-xl:   clamp(1.5rem,   1.35rem + 0.9vw, 1.875rem);
+  --fs-2xl:  clamp(1.875rem, 1.6rem + 1.4vw,  2.5rem);
+  --fs-3xl:  clamp(2.25rem,  1.85rem + 2vw,   3.5rem);
+  --fs-4xl:  clamp(3rem,     2.4rem + 3vw,     5rem);
+  --fs-5xl:  clamp(3.75rem,  2.8rem + 4.5vw,   7rem);
+  --fs-6xl:  clamp(4.5rem,   3rem + 7vw,       10rem);
+
+  --lh-tight:  1.1;
+  --lh-snug:   1.25;
+  --lh-normal: 1.55;
+  --lh-loose:  1.75;
+
+  --tracking-tight:  -0.04em;
+  --tracking-snug:   -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-widest: 0.18em;
+
+  /* ── Radius ──────────────────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ── Shadow · Glassmorphism + Neumorphism ────────────── */
+  --shadow-glass:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 24px 60px -20px rgba(0, 0, 0, 0.5);
+  --shadow-glass-hover:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 32px 80px -20px rgba(127, 82, 255, 0.25);
+  --shadow-neu:
+      8px 8px 16px rgba(0, 0, 0, 0.45),
+      -8px -8px 16px rgba(255, 255, 255, 0.02);
+  --shadow-neu-inset:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.45),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+  --shadow-neu-pressed:
+      inset 6px 6px 12px rgba(0, 0, 0, 0.55),
+      inset -6px -6px 12px rgba(255, 255, 255, 0.025);
+  --shadow-glow:
+      0 0 24px rgba(127, 82, 255, 0.45),
+      0 0 60px rgba(199, 17, 225, 0.25);
+  --shadow-glow-cyan:
+      0 0 24px rgba(6, 182, 212, 0.4),
+      0 0 60px rgba(6, 182, 212, 0.2);
+
+  /* ── Blur · Glassmorphism ────────────────────────────── */
+  --blur-sm:  8px;
+  --blur-md:  16px;
+  --blur-lg:  24px;
+  --blur-xl:  40px;
+  --blur-2xl: 64px;
+
+  /* ── Motion · Easing & Duration ──────────────────────── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --dur-fast:   150ms;
+  --dur-base:   280ms;
+  --dur-slow:   500ms;
+  --dur-slower: 900ms;
+  --dur-glacial:1500ms;
+
+  /* ── Layout · Containers ─────────────────────────────── */
+  --container-sm:  640px;
+  --container-md:  900px;
+  --container-lg:  1200px;
+  --container-xl:  1440px;
+  --container-full: 1600px;
+
+  --nav-height: 72px;
+
+  /* ── Z-Index Scale ───────────────────────────────────── */
+  --z-base:    1;
+  --z-raised:  10;
+  --z-sticky:  100;
+  --z-nav:     1000;
+  --z-modal:   2000;
+  --z-cursor:  9999;
+
+  /* ── Scroll-linked (set by JS) ───────────────────────── */
+  --scroll-y:        0px;
+  --scroll-progress: 0;     /* 0–1 across page */
+  --scroll-direction: 1;    /* 1 down, -1 up */
+  --vh:              100vh;
+  --vw:              100vw;
+}
+
+/* ── Material You · dynamic accent (user-controlled) ───── */
+:root[data-accent="purple"] {
+  --color-brand: #7f52ff;
+  --color-brand-2: #c711e1;
+  --grad-primary: linear-gradient(135deg, #7f52ff, #c711e1);
+}
+:root[data-accent="cyan"] {
+  --color-brand: #06b6d4;
+  --color-brand-2: #3b82f6;
+  --grad-primary: linear-gradient(135deg, #06b6d4, #3b82f6);
+}
+:root[data-accent="emerald"] {
+  --color-brand: #10b981;
+  --color-brand-2: #06b6d4;
+  --grad-primary: linear-gradient(135deg, #10b981, #06b6d4);
+}
+:root[data-accent="sunset"] {
+  --color-brand: #f59e0b;
+  --color-brand-2: #ef4444;
+  --grad-primary: linear-gradient(135deg, #f59e0b, #ef4444);
+}
+
+/* ── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

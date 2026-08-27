@@ -1,0 +1,10 @@
+{
+  "buildCommand": null,
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!_expo|assets|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

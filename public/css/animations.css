@@ -1,0 +1,157 @@
+/* =========================================================
+   05 · ANIMATIONS · Reveal, parallax, scroll-linked
+   ========================================================= */
+
+/* ── Reveal on scroll ──────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+      opacity 800ms var(--ease-out),
+      transform 800ms var(--ease-out);
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translate3d(-24px, 0, 0); }
+[data-reveal="right"] { transform: translate3d( 24px, 0, 0); }
+[data-reveal="scale"] { transform: scale(0.96); }
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+}
+[data-reveal-stagger].is-visible > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+[data-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 80ms; }
+[data-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 160ms; }
+[data-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 240ms; }
+[data-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 320ms; }
+[data-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 400ms; }
+[data-reveal-stagger].is-visible > *:nth-child(7) { transition-delay: 480ms; }
+[data-reveal-stagger].is-visible > *:nth-child(8) { transition-delay: 560ms; }
+
+/* ── Parallax · transform via scroll variable ─────────── */
+[data-parallax] {
+  transform: translate3d(0, calc(var(--scroll-y, 0) * var(--parallax-speed, -0.15)), 0);
+  will-change: transform;
+}
+
+/* ── Section progress bars ────────────────────────────── */
+.section-progress {
+  position: absolute;
+  top: 0; left: 0;
+  width: calc(var(--section-progress, 0) * 100%);
+  height: 2px;
+  background: var(--grad-primary);
+  z-index: 5;
+}
+
+/* ── Word-by-word reveal ──────────────────────────────── */
+.word-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.word-reveal > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 700ms var(--ease-out);
+}
+.is-visible .word-reveal > span {
+  transform: translateY(0);
+}
+.is-visible .word-reveal:nth-child(1) > span { transition-delay: 0ms; }
+.is-visible .word-reveal:nth-child(2) > span { transition-delay: 60ms; }
+.is-visible .word-reveal:nth-child(3) > span { transition-delay: 120ms; }
+.is-visible .word-reveal:nth-child(4) > span { transition-delay: 180ms; }
+.is-visible .word-reveal:nth-child(5) > span { transition-delay: 240ms; }
+.is-visible .word-reveal:nth-child(6) > span { transition-delay: 300ms; }
+.is-visible .word-reveal:nth-child(7) > span { transition-delay: 360ms; }
+.is-visible .word-reveal:nth-child(8) > span { transition-delay: 420ms; }
+
+/* ── Glow on hover ─────────────────────────────────────── */
+.glow {
+  position: relative;
+  isolation: isolate;
+}
+.glow::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: var(--grad-primary);
+  z-index: -1;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.glow:hover::before { opacity: 0.6; }
+
+/* ── Magnetic hover (paired with JS) ──────────────────── */
+.magnetic {
+  transition: transform 350ms var(--ease-out);
+  will-change: transform;
+}
+
+/* ── Gradient border shimmer ──────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg,
+      var(--color-brand) 0%,
+      var(--color-brand-2) 25%,
+      var(--color-brand-5) 50%,
+      var(--color-brand-2) 75%,
+      var(--color-brand) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* ── Floating particle effect ─────────────────────────── */
+.particle {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: var(--color-brand);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation: floatParticle 12s linear infinite;
+}
+@keyframes floatParticle {
+  0%   { opacity: 0; transform: translateY(100vh) scale(0); }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+}
+
+/* ── Number counter style ─────────────────────────────── */
+.counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ── Loading · first paint ───────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: fadeIn 600ms var(--ease-out);
+}
+
+/* ── Anchor · scroll margin offset ─────────────────────── */
+[id] {
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}

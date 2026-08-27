@@ -1,0 +1,1869 @@
+<!doctype html>
+<html lang="en" data-accent="purple">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="color-scheme" content="dark" />
+  <title>Aarav Kapoor — Senior Android Engineer · Kotlin · Compose · Architecture</title>
+  <meta name="description" content="Senior Android Engineer specialising in Kotlin, Jetpack Compose, Clean Architecture & high-scale mobile systems. 9+ years shipping production apps at scale." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aarav Kapoor — Senior Android Engineer" />
+  <meta property="og:description" content="Kotlin · Compose · Architecture · Performance · 9+ years shipping production apps." />
+  <meta property="og:type" content="website" />
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets (order: tokens → base → components → layout → animations) -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Favicon (inline SVG, no asset fetch) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237f52ff'/%3E%3Cstop offset='1' stop-color='%23c711e1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Space Grotesk, sans-serif' font-size='52' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- ═════════════ AMBIENT BACKGROUND LAYERS ═════════════ -->
+  <div class="bg-grid"  aria-hidden="true"></div>
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-noise"  aria-hidden="true"></div>
+
+  <!-- ═════════════ SCROLL PROGRESS ═════════════ -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ═════════════ NAV · Glass Navbar w/ scroll-spy ═════════════ -->
+  <header class="nav" id="nav" data-nav>
+    <div class="nav__inner">
+      <a href="#hero" class="nav__brand" aria-label="Aarav Kapoor — home">
+        <span class="nav__logo" aria-hidden="true">AK</span>
+        <span class="nav__brand-text">
+          <span>Aarav&nbsp;Kapoor</span>
+          <small>Senior Android Engineer</small>
+        </span>
+      </a>
+
+      <nav class="nav__list" id="navList" aria-label="Primary">
+        <a class="nav__link" href="#about"        data-nav-link>About</a>
+        <a class="nav__link" href="#skills"       data-nav-link>Skills</a>
+        <a class="nav__link" href="#experience"   data-nav-link>Experience</a>
+        <a class="nav__link" href="#projects"     data-nav-link>Projects</a>
+        <a class="nav__link" href="#architecture" data-nav-link>Architecture</a>
+        <a class="nav__link" href="#opensource"   data-nav-link>OSS</a>
+        <a class="nav__link" href="#writing"      data-nav-link>Writing</a>
+        <a class="nav__link" href="#contact"      data-nav-link>Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#contact" class="btn btn--primary nav__cta">
+          Hire me
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ═══════════ 01 · HERO ═══════════ -->
+    <section class="section section--hero" id="hero" data-section data-section-name="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero">
+          <div class="hero__content">
+            <span class="hero__badge" data-reveal>
+              <span class="hero__badge-avatar">AK</span>
+              <span><span class="dot" style="color:#4ade80;display:inline-block;width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;margin-right:6px;animation:pulse 2s ease-in-out infinite;"></span>Available for senior & staff Android roles · Remote / Berlin</span>
+            </span>
+
+            <h1 class="hero__title" id="heroTitle">
+              <span class="word">Building</span>
+              <span class="word">the</span>
+              <span class="word word--accent">Android</span>
+              <span class="word">platform,</span>
+              <br />
+              <span class="word">one</span>
+              <span class="word">composable</span>
+              <span class="word word--accent">surface</span>
+              <span class="word">at</span>
+              <span class="word">a</span>
+              <span class="word">time.</span>
+            </h1>
+
+            <div class="hero__typewriter" aria-live="polite">
+              <span id="typewriter" data-roles='["Kotlin Multiplatform engineer", "Jetpack Compose specialist", "Clean Architecture advocate", "Performance optimisation nerd", "Open-source maintainer"]'></span><span class="caret"></span>
+            </div>
+
+            <p class="hero__lede" data-reveal>
+              I'm <strong>Aarav</strong> — a Senior Android Engineer with 9+ years shipping high-scale
+              mobile systems. I lead architecture for apps serving <strong>40M+ MAUs</strong>,
+              write about Kotlin internals, and believe in pixel-perfect, accessible, offline-first mobile UX.
+            </p>
+
+            <div class="hero__cta" data-reveal>
+              <a href="#projects" class="btn btn--primary">
+                View case studies
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#contact" class="btn btn--ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z M4 4l8 8 8-8"/></svg>
+                Get in touch
+              </a>
+            </div>
+
+            <ul class="hero__meta" data-reveal>
+              <li class="hero__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Berlin · Remote-first
+              </li>
+              <li class="hero__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+                ex-Google · ex-Stripe · ex-Revolut
+              </li>
+              <li class="hero__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                IST 09:00 → CET 18:00
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero__visual" data-reveal="right">
+            <div class="hero__orb" aria-hidden="true"></div>
+            <div class="hero__device" aria-hidden="true">
+              <div class="hero__device-notch"></div>
+              <div class="hero__device-screen">
+                <div class="hero__device-bar hero__device-bar--small"></div>
+                <div class="hero__device-bar hero__device-bar--wide hero__device-bar--cyan"></div>
+                <div class="hero__device-bar hero__device-bar--medium"></div>
+                <div class="hero__device-grid">
+                  <div class="hero__device-tile"></div>
+                  <div class="hero__device-tile"></div>
+                  <div class="hero__device-tile"></div>
+                  <div class="hero__device-tile"></div>
+                </div>
+                <div class="hero__device-bar hero__device-bar--wide"></div>
+                <div class="hero__device-bar hero__device-bar--medium hero__device-bar--cyan"></div>
+              </div>
+            </div>
+            <div class="hero__floating hero__floating--top">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+              LCP · 0.8s
+            </div>
+            <div class="hero__floating hero__floating--bottom">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+              40M+ MAU
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 02 · TRUSTED BY (Marquee) ═══════════ -->
+    <section class="section section--tight" aria-labelledby="trustedTitle">
+      <div class="container">
+        <p id="trustedTitle" style="text-align:center;font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--color-text-dim);text-transform:uppercase;letter-spacing:var(--tracking-widest);margin-bottom:var(--space-5);">Apps I've shipped at scale · 2020 – 2025</p>
+        <div class="marquee">
+          <div class="marquee__track">
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Google&nbsp;Pay</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Stripe&nbsp;Terminal</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Revolut&nbsp;Crypto</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">N26&nbsp;Mobile</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Bumble&nbsp;Date</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Zalando</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Delivery&nbsp;Hero</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Babbel</span>
+            <!-- duplicate for seamless loop -->
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Google&nbsp;Pay</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Stripe&nbsp;Terminal</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Revolut&nbsp;Crypto</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">N26&nbsp;Mobile</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Bumble&nbsp;Date</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Zalando</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Delivery&nbsp;Hero</span>
+            <span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-text-muted);">Babbel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 03 · ABOUT ═══════════ -->
+    <section class="section" id="about" data-section data-section-name="about" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>02</div>
+        <span class="eyebrow" data-reveal>About me</span>
+        <h2 class="section-title" id="aboutTitle" data-reveal>
+          9 years of <span class="section-title__highlight">shipping mobile software</span> that
+          <span class="section-title__highlight">millions actually use</span>.
+        </h2>
+
+        <div class="about__grid">
+          <div class="about__portrait" data-reveal="left">
+            <span class="about__portrait-initial">AK</span>
+            <div class="about__portrait-meta">
+              <strong>Aarav Kapoor</strong>
+              <span>Senior Android Engineer · Berlin, DE</span>
+            </div>
+          </div>
+
+          <div class="about__body-wrap">
+            <p class="about__intro" data-reveal>
+              I'm a <span class="hl">product-minded Android engineer</span> who treats the JVM, the render
+              thread and the lifecycle as first-class citizens. My favourite commits are the ones
+              nobody sees — but everybody feels.
+            </p>
+            <p data-reveal>
+              I currently lead the <a href="#" style="color:var(--color-brand-3);">Mobile Platform</a> team at
+              <strong>Series-B fintech</strong>, where we rebuilt our 6-year-old app into a Kotlin-first,
+              Compose-native, offline-first platform that cut crash-free sessions by <strong>87%</strong>
+              and shaved <strong>1.2s off cold start</strong>.
+            </p>
+            <p data-reveal>
+              Previously, I shipped Android for <strong>Google Pay</strong> in Mountain View, led the
+              <strong>Stripe Terminal</strong> SDK for Android, and built crypto trading surfaces at
+              <strong>Revolut</strong>. I write about Compose internals, KMP and architecture on my
+              newsletter <em>The Compose Post</em> (4,200 subscribers).
+            </p>
+
+            <div class="about__facts" data-reveal-stagger>
+              <div class="fact">
+                <div class="fact__num"><span class="counter" data-count="40">0</span>M+</div>
+                <div class="fact__label">Monthly Active Users</div>
+              </div>
+              <div class="fact">
+                <div class="fact__num"><span class="counter" data-count="120">0</span>+</div>
+                <div class="fact__label">Apps shipped to production</div>
+              </div>
+              <div class="fact">
+                <div class="fact__num"><span class="counter" data-count="22">0</span>k+</div>
+                <div class="fact__label">GitHub stars earned</div>
+              </div>
+              <div class="fact">
+                <div class="fact__num"><span class="counter" data-count="9">0</span>+</div>
+                <div class="fact__label">Years on the JVM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 04 · SKILLS ═══════════ -->
+    <section class="section" id="skills" data-section data-section-name="skills" aria-labelledby="skillsTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>03</div>
+        <span class="eyebrow" data-reveal>Tech stack</span>
+        <h2 class="section-title" id="skillsTitle" data-reveal>
+          The tools I reach for, <span class="section-title__highlight">day in, day out</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          Curated across nine years of building production Android — language, framework, architecture,
+          observability and tooling. Not a list of every API I've ever touched.
+        </p>
+
+        <div class="skills__grid" data-reveal-stagger>
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+            </div>
+            <h3 class="skill-card__title">Languages</h3>
+            <div class="skill-card__list">
+              <span class="chip">Kotlin</span>
+              <span class="chip">Kotlin Multiplatform</span>
+              <span class="chip">Java 17</span>
+              <span class="chip">Rust (NDK)</span>
+              <span class="chip">SQL</span>
+              <span class="chip">TypeScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            </div>
+            <h3 class="skill-card__title">UI · Jetpack Compose</h3>
+            <div class="skill-card__list">
+              <span class="chip">Compose Multiplatform</span>
+              <span class="chip">Material 3 / You</span>
+              <span class="chip">Modifier graph</span>
+              <span class="chip">Custom layouts</span>
+              <span class="chip">Compose Compiler</span>
+              <span class="chip">LookaheadLayout</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="skill-card__title">Architecture</h3>
+            <div class="skill-card__list">
+              <span class="chip">Clean Architecture</span>
+              <span class="chip">MVI + UDF</span>
+              <span class="chip">Modularisation</span>
+              <span class="chip">Feature modules</span>
+              <span class="chip">Hilt / Koin</span>
+              <span class="chip">Ktor / Retrofit</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg>
+            </div>
+            <h3 class="skill-card__title">Async · Concurrency</h3>
+            <div class="skill-card__list">
+              <span class="chip">Coroutines</span>
+              <span class="chip">Flow / StateFlow</span>
+              <span class="chip">WorkManager</span>
+              <span class="chip">Paging 3</span>
+              <span class="chip">DataStore</span>
+              <span class="chip">Room / SQLDelight</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-7-8-13a8 8 0 0116 0c0 6-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+            </div>
+            <h3 class="skill-card__title">Performance</h3>
+            <div class="skill-card__list">
+              <span class="chip">Baseline Profiles</span>
+              <span class="chip">JankStats</span>
+              <span class="chip">Macrobenchmark</span>
+              <span class="chip">Choreographer</span>
+              <span class="chip">R8 / D8</span>
+              <span class="chip">Memory profiling</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/></svg>
+            </div>
+            <h3 class="skill-card__title">Testing · Quality</h3>
+            <div class="skill-card__list">
+              <span class="chip">JUnit5 / Kotest</span>
+              <span class="chip">Compose UI tests</span>
+              <span class="chip">Turbine</span>
+              <span class="chip">MockK</span>
+              <span class="chip">Robolectric</span>
+              <span class="chip">Detekt / ktlint</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.7l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.7l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h3 class="skill-card__title">DevOps · Delivery</h3>
+            <div class="skill-card__list">
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">Fastlane</span>
+              <span class="chip">Play Console</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">Sentry</span>
+              <span class="chip">Bitrise</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3 class="skill-card__title">Beyond Android</h3>
+            <div class="skill-card__list">
+              <span class="chip">iOS · SwiftUI basics</span>
+              <span class="chip">Backend (Ktor)</span>
+              <span class="chip">Web (React)</span>
+              <span class="chip">GraphQL</span>
+              <span class="chip">Docker</span>
+              <span class="chip">AWS / GCP</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 05 · CAREER STATS STRIP ═══════════ -->
+    <section class="section section--tight" aria-label="Career metrics">
+      <div class="container">
+        <div class="stats-strip" data-reveal-stagger>
+          <div class="stat">
+            <div class="stat__value"><span class="counter" data-count="40">0</span>M+</div>
+            <div class="stat__label">Users on apps I shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value"><span class="counter" data-count="87">0</span>%</div>
+            <div class="stat__label">Crash-free session lift</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value">-<span class="counter" data-count="1200">0</span>ms</div>
+            <div class="stat__label">Cold start shaved</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value"><span class="counter" data-count="42">0</span></div>
+            <div class="stat__label">Engineers mentored to senior+</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value"><span class="counter" data-count="14">0</span></div>
+            <div class="stat__label">Open-source libraries</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 06 · EXPERIENCE ═══════════ -->
+    <section class="section" id="experience" data-section data-section-name="experience" aria-labelledby="expTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>04</div>
+        <span class="eyebrow" data-reveal>Experience</span>
+        <h2 class="section-title" id="expTitle" data-reveal>
+          Nine years, four companies, <span class="section-title__highlight">one constant: shipping</span>.
+        </h2>
+
+        <div class="timeline" data-reveal-stagger>
+          <article class="timeline__item">
+            <div class="timeline__period">2023 — PRESENT</div>
+            <h3 class="timeline__role">Lead Android Engineer · Mobile Platform</h3>
+            <p class="timeline__company"><a href="#">Stealth fintech</a> · Berlin · Remote-first</p>
+            <p class="timeline__desc">
+              Leading a 9-engineer mobile platform team rebuilding a 6-year-old Java monolith into a Kotlin-first,
+              Compose-native, modular monolith with offline-first sync. Cut p95 cold-start from 2.8s → 1.6s
+              and crash-free sessions from 96.1% → 99.4% across two quarters.
+            </p>
+            <div class="timeline__chips">
+              <span class="badge">Kotlin</span>
+              <span class="badge badge--cyan">Compose</span>
+              <span class="badge badge--pink">KMP</span>
+              <span class="badge badge--green">Baseline Profiles</span>
+              <span class="badge badge--amber">Team Lead</span>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__period">2021 — 2023</div>
+            <h3 class="timeline__role">Senior Android Engineer · Payments SDK</h3>
+            <p class="timeline__company"><a href="#">Stripe</a> · Remote (US)</p>
+            <p class="timeline__desc">
+              Tech-lead for the Stripe Terminal Android SDK — EMV chip readers, Bluetooth pairing,
+              printer integration. Built the offline transaction queue, the cert-pinning infra,
+              and the Compose-based merchant demo app.
+            </p>
+            <div class="timeline__chips">
+              <span class="badge">Bluetooth</span>
+              <span class="badge badge--cyan">NFC</span>
+              <span class="badge badge--pink">EMV</span>
+              <span class="badge badge--green">SDK Design</span>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__period">2019 — 2021</div>
+            <h3 class="timeline__role">Android Engineer · Google Pay</h3>
+            <p class="timeline__company"><a href="#">Google</a> · Mountain View, CA</p>
+            <p class="timeline__desc">
+              Built the contactless tap-to-pay experience on Pixel devices. Owned the Jetpack Security
+              encrypted-shared-prefs migration and the Compose-based merchant dashboard rewrite.
+              Shipped to 12 countries and 3 billion devices.
+            </p>
+            <div class="timeline__chips">
+              <span class="badge">Contactless</span>
+              <span class="badge badge--cyan">Jetpack Security</span>
+              <span class="badge badge--pink">AOSP</span>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__period">2017 — 2019</div>
+            <h3 class="timeline__role">Android Engineer · Crypto Trading</h3>
+            <p class="timeline__company"><a href="#">Revolut</a> · London, UK</p>
+            <p class="timeline__desc">
+              First Android hire on the Crypto vertical. Built the order-execution surface, the
+              WebSocket-driven ticker, and the on-device key vault. Got crypto MAU from 0 → 4M
+              in 18 months.
+            </p>
+            <div class="timeline__chips">
+              <span class="badge">WebSockets</span>
+              <span class="badge badge--cyan">Trading UI</span>
+              <span class="badge badge--green">Crypto</span>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__period">2015 — 2017</div>
+            <h3 class="timeline__role">Junior → Mid Android Developer</h3>
+            <p class="timeline__company"><a href="#">ThoughtBot</a> · Consultancy</p>
+            <p class="timeline__desc">
+              Started in Java, learned Kotlin mid-way through, helped 8 startups ship their
+              first Android apps. Wrote my first public library (<code>flow-preferences</code>,
+              3.1k stars on GitHub).
+            </p>
+            <div class="timeline__chips">
+              <span class="badge">Java → Kotlin</span>
+              <span class="badge badge--cyan">Consulting</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 07 · FEATURED PROJECTS ═══════════ -->
+    <section class="section" id="projects" data-section data-section-name="projects" aria-labelledby="projTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>05</div>
+        <span class="eyebrow" data-reveal>Selected work</span>
+        <h2 class="section-title" id="projTitle" data-reveal>
+          Projects that <span class="section-title__highlight">moved the needle</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          A small, opinionated slice. Each one ships to &gt; 1M users today. Click any card for the
+          full engineering write-up.
+        </p>
+
+        <div class="projects__grid" data-reveal-stagger>
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">2024 · Compose Migration</span>
+              <span class="badge badge--green"><span class="dot"></span>Live</span>
+            </div>
+            <h3 class="project__title">Stealth Bank — Compose-native rebuild</h3>
+            <p class="project__desc">
+              Took a 380k-line Java/Kotlin app and migrated 92% of UI surfaces to Jetpack Compose in
+              14 months. Cut view-hierarchy inflation by 64%, framework cold start by 1.2s.
+            </p>
+            <div class="project__chips">
+              <span class="chip">Compose</span>
+              <span class="chip">Modularisation</span>
+              <span class="chip">Baseline Profiles</span>
+              <span class="chip">JankStats</span>
+            </div>
+            <div class="project__links">
+              <a href="#">Read case study →</a>
+              <a href="#">GitHub sample →</a>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">2022 · SDK</span>
+              <span class="badge badge--cyan"><span class="dot"></span>v3.4</span>
+            </div>
+            <h3 class="project__title">Stripe Terminal · Android SDK</h3>
+            <p class="project__desc">
+              Designed the merchant pairing UX for chip & tap readers across 14 countries.
+              Offline transaction queue with at-least-once semantics, HMAC-signed event log.
+            </p>
+            <div class="project__chips">
+              <span class="chip">Bluetooth LE</span>
+              <span class="chip">EMV</span>
+              <span class="chip">HMAC</span>
+              <span class="chip">NFC</span>
+            </div>
+            <div class="project__links">
+              <a href="#">Engineering blog →</a>
+              <a href="#">Docs →</a>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">2021 · Open Source</span>
+              <span class="badge"><span class="dot"></span>22.4k★</span>
+            </div>
+            <h3 class="project__title">Compose-O-Matic · Screenshot test framework</h3>
+            <p class="project__desc">
+              Custom screenshot-testing DSL for Compose. Generates deterministic PNGs against any
+              API level, theme & font-scale combo. Adopted by ~80 OSS projects.
+            </p>
+            <div class="project__chips">
+              <span class="chip">Kotlin</span>
+              <span class="chip">Compose Compiler</span>
+              <span class="chip">Roborazzi</span>
+            </div>
+            <div class="project__links">
+              <a href="#">GitHub →</a>
+              <a href="#">Talk recording →</a>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">2020 · Fintech</span>
+              <span class="badge badge--pink"><span class="dot"></span>4M users</span>
+            </div>
+            <h3 class="project__title">Revolut · Crypto order book UI</h3>
+            <p class="project__desc">
+              A self-balancing AVL-tree–backed order book rendering 200+ price levels at 60fps via
+              WebSockets. Sub-16ms frame budget on Pixel 3a.
+            </p>
+            <div class="project__chips">
+              <span class="chip">WebSockets</span>
+              <span class="chip">Custom View</span>
+              <span class="chip">Choreographer</span>
+            </div>
+            <div class="project__links">
+              <a href="#">Case study →</a>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">2020 · AOSP</span>
+              <span class="badge badge--amber"><span class="dot"></span>Pixel exclusive</span>
+            </div>
+            <h3 class="project__title">Google Pay · Tap-to-pay on Pixel</h3>
+            <p class="project__desc">
+              The contactless surface shipped across Pixel 3 → Pixel 9. Co-authored the AOSP
+              changes for the secure element & gateway router.
+            </p>
+            <div class="project__chips">
+              <span class="chip">AOSP</span>
+              <span class="chip">Secure Element</span>
+              <span class="chip">NCI / HCI</span>
+            </div>
+            <div class="project__links">
+              <a href="#">Google blog →</a>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">Side project</span>
+              <span class="badge"><span class="dot"></span>v0.7</span>
+            </div>
+            <h3 class="project__title">KMP · Local-first task app</h3>
+            <p class="project__desc">
+              Personal CRM built with Compose Multiplatform sharing 88% of code between Android, iOS
+              and Desktop. CRDT-based sync, end-to-end encrypted.
+            </p>
+            <div class="project__chips">
+              <span class="chip">KMP</span>
+              <span class="chip">CRDT</span>
+              <span class="chip">SQLDelight</span>
+            </div>
+            <div class="project__links">
+              <a href="#">GitHub →</a>
+              <a href="#">Live demo →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 08 · ARCHITECTURE DEEP DIVES ═══════════ -->
+    <section class="section" id="architecture" data-section data-section-name="architecture" aria-labelledby="archTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>06</div>
+        <span class="eyebrow" data-reveal>Architecture · deep dives</span>
+        <h2 class="section-title" id="archTitle" data-reveal>
+          How I <span class="section-title__highlight">structure large Android apps</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          Three patterns I keep reaching for. Each one is a write-up from a real production codebase —
+          not slideware.
+        </p>
+
+        <div class="arch-dive" data-reveal-stagger>
+          <article class="arch-card">
+            <span class="arch-card__label">Pattern · 01</span>
+            <h3 class="arch-card__title">Modular monolith · 47 modules</h3>
+            <div class="arch-card__diagram">
+              <span class="arch-card__layer">app</span>
+              <span class="arch-card__arrow">→</span>
+              <span class="arch-card__layer arch-card__layer--cyan">feature:*</span>
+              <span class="arch-card__arrow">→</span>
+              <span class="arch-card__layer arch-card__layer--pink">core:*</span>
+            </div>
+            <ul class="arch-card__list">
+              <li>Convention plugins for build consistency</li>
+              <li>Feature modules hidden behind <code>:api</code> modules</li>
+              <li>DI graph per feature, app-level aggregator</li>
+              <li>Build cache: 4m → 38s on M-series MBP</li>
+              <li>Strict <code>module-rules</code> Detekt rules</li>
+            </ul>
+          </article>
+
+          <article class="arch-card">
+            <span class="arch-card__label">Pattern · 02</span>
+            <h3 class="arch-card__title">UDF + StateFlow · predictable UI</h3>
+            <div class="arch-card__diagram">
+              <span class="arch-card__layer arch-card__layer--green">Intent</span>
+              <span class="arch-card__arrow">→</span>
+              <span class="arch-card__layer">Reducer</span>
+              <span class="arch-card__arrow">→</span>
+              <span class="arch-card__layer arch-card__layer--cyan">State</span>
+            </div>
+            <ul class="arch-card__list">
+              <li>One immutable <code>UiState</code> per screen</li>
+              <li>Side-effects as <code>suspend</code> functions, not state</li>
+              <li>Single <code>StateFlow</code> per ViewModel</li>
+              <li>Compose <code>collectAsStateWithLifecycle</code> everywhere</li>
+              <li>Turbine for unit tests, no mocking framework</li>
+            </ul>
+          </article>
+
+          <article class="arch-card">
+            <span class="arch-card__label">Pattern · 03</span>
+            <h3 class="arch-card__title">Offline-first sync · CRDT</h3>
+            <div class="arch-card__diagram">
+              <span class="arch-card__layer">Device</span>
+              <span class="arch-card__arrow">⇄</span>
+              <span class="arch-card__layer arch-card__layer--cyan">CRDT log</span>
+              <span class="arch-card__arrow">⇄</span>
+              <span class="arch-card__layer arch-card__layer--green">Server</span>
+            </div>
+            <ul class="arch-card__list">
+              <li>Append-only op-log, last-write-wins + tombstones</li>
+              <li>Lamport-clock ordering for causality</li>
+              <li>Conflict-free merge by construction</li>
+              <li>Works offline for &gt; 30 days without sync</li>
+              <li>End-to-end encrypted with libsodium-jvm</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 09 · OPEN SOURCE ═══════════ -->
+    <section class="section" id="opensource" data-section data-section-name="opensource" aria-labelledby="ossTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>07</div>
+        <span class="eyebrow" data-reveal>Open source</span>
+        <h2 class="section-title" id="ossTitle" data-reveal>
+          Code I maintain in <span class="section-title__highlight">the open</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          14 public libraries, 3k+ commits in the last 24 months. Mostly Compose tooling, KMP, and
+          Android performance utilities.
+        </p>
+
+        <div class="oss__grid" data-reveal-stagger>
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                compose-snapshot<small>apache-2.0</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">Snapshot testing for Compose, with deterministic rendering across API levels, themes & font scales.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 8.2k</span>
+              <span class="oss-card__stat">⑂ 412</span>
+              <span class="oss-card__stat">v3.1.0</span>
+            </div>
+          </article>
+
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                flow-preferences<small>apache-2.0</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">Type-safe DataStore-backed Preferences exposed as Flow. My first library, still maintained.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 3.1k</span>
+              <span class="oss-card__stat">⑂ 184</span>
+              <span class="oss-card__stat">v1.4.0</span>
+            </div>
+          </article>
+
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                macro-benchmark-harness<small>mit</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">Drop-in macrobenchmark wrapper. Tracks startup, jank, frame-timing on CI.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 4.6k</span>
+              <span class="oss-card__stat">⑂ 96</span>
+              <span class="oss-card__stat">v0.9.2</span>
+            </div>
+          </article>
+
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                kmp-crdt-sync<small>apache-2.0</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">Append-only CRDT log for KMP. Lamport clocks, type-safe merge operators.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 1.4k</span>
+              <span class="oss-card__stat">⑂ 52</span>
+              <span class="oss-card__stat">v0.4.0</span>
+            </div>
+          </article>
+
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                compose-perf-inspector<small>mit</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">In-app Compose recomposition & frame-timing overlay for QA builds.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 2.8k</span>
+              <span class="oss-card__stat">⑂ 74</span>
+              <span class="oss-card__stat">v1.0.0</span>
+            </div>
+          </article>
+
+          <article class="oss-card">
+            <div class="oss-card__head">
+              <div class="oss-card__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              </div>
+              <div class="oss-card__name">
+                detekt-modulith<small>apache-2.0</small>
+              </div>
+            </div>
+            <p class="oss-card__desc">Detekt ruleset enforcing Clean Architecture module boundaries.</p>
+            <div class="oss-card__stats">
+              <span class="oss-card__stat">★ 1.1k</span>
+              <span class="oss-card__stat">⑂ 38</span>
+              <span class="oss-card__stat">v0.6.1</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 10 · CERTIFICATIONS ═══════════ -->
+    <section class="section" aria-labelledby="certsTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>08</div>
+        <span class="eyebrow" data-reveal>Certifications</span>
+        <h2 class="section-title" id="certsTitle" data-reveal>
+          Formal <span class="section-title__highlight">credentials</span>.
+        </h2>
+
+        <div class="certs__grid" data-reveal-stagger>
+          <article class="cert-card">
+            <div class="cert-card__seal">GDE</div>
+            <div>
+              <h3 class="cert-card__name">Google Developer Expert · Android</h3>
+              <p class="cert-card__issuer">Google · Renewed 2024</p>
+              <p class="cert-card__date">Issued 2020</p>
+            </div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-card__seal">ACE</div>
+            <div>
+              <h3 class="cert-card__name">Associate Android Developer</h3>
+              <p class="cert-card__issuer">Google · Certificate ID AAD-2019-04</p>
+              <p class="cert-card__date">Issued 2019</p>
+            </div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-card__seal">CK</div>
+            <div>
+              <h3 class="cert-card__name">Certified Kubernetes Application Developer</h3>
+              <p class="cert-card__issuer">Cloud Native Computing Foundation</p>
+              <p class="cert-card__date">Issued 2022</p>
+            </div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-card__seal">AWS</div>
+            <div>
+              <h3 class="cert-card__name">AWS Certified Solutions Architect — Associate</h3>
+              <p class="cert-card__issuer">Amazon Web Services</p>
+              <p class="cert-card__date">Issued 2021</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 11 · SPEAKING / TALKS ═══════════ -->
+    <section class="section" aria-labelledby="speakingTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>09</div>
+        <span class="eyebrow" data-reveal>Speaking</span>
+        <h2 class="section-title" id="speakingTitle" data-reveal>
+          Recent <span class="section-title__highlight">talks &amp; conference sessions</span>.
+        </h2>
+
+        <div class="blog__list" data-reveal-stagger>
+          <article class="blog-item">
+            <div class="blog-item__date">OCT 2024</div>
+            <div>
+              <h3 class="blog-item__title">The Modular Monolith, Compose-First</h3>
+              <div class="blog-item__meta">
+                <span>droidcon London · Main stage</span>
+                <span>· 1,200 attendees</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">JUN 2024</div>
+            <div>
+              <h3 class="blog-item__title">Sub-16ms: Frame Budget Warfare in Compose</h3>
+              <div class="blog-item__meta">
+                <span>KotlinConf Amsterdam · Track A</span>
+                <span>· Talk recording · 38k views</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">MAR 2024</div>
+            <div>
+              <h3 class="blog-item__title">Offline-first Android: a CRDT field report</h3>
+              <div class="blog-item__meta">
+                <span>Android Makers · Paris</span>
+                <span>· Workshop + talk</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">NOV 2023</div>
+            <div>
+              <h3 class="blog-item__title">From Java Monolith to Compose: a 14-month migration story</h3>
+              <div class="blog-item__meta">
+                <span>DroidKaigi · Tokyo</span>
+                <span>· 45 min keynote</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 12 · WRITING · BLOG ═══════════ -->
+    <section class="section" id="writing" data-section data-section-name="writing" aria-labelledby="blogTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>10</div>
+        <span class="eyebrow" data-reveal>Writing</span>
+        <h2 class="section-title" id="blogTitle" data-reveal>
+          From the <span class="section-title__highlight">Compose Post</span> newsletter.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          ~4,200 subscribers · One long-form essay every two weeks · Covering Compose internals,
+          Kotlin Multiplatform and architecture patterns for senior mobile engineers.
+        </p>
+
+        <div class="blog__list" data-reveal-stagger>
+          <article class="blog-item">
+            <div class="blog-item__date">DEC 2024</div>
+            <div>
+              <h3 class="blog-item__title">Reading the Compose Compiler: an annotated source walk</h3>
+              <div class="blog-item__meta">
+                <span>composepost.dev</span>
+                <span>· 28 min read</span>
+                <span>· ★ 1.2k claps</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">NOV 2024</div>
+            <div>
+              <h3 class="blog-item__title">The 6 Compose performance mistakes I keep seeing in code review</h3>
+              <div class="blog-item__meta">
+                <span>composepost.dev</span>
+                <span>· 11 min read</span>
+                <span>· ★ 880 claps</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">OCT 2024</div>
+            <div>
+              <h3 class="blog-item__title">KMP at scale: how we share 88% of code between iOS &amp; Android</h3>
+              <div class="blog-item__meta">
+                <span>composepost.dev</span>
+                <span>· 18 min read</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">SEP 2024</div>
+            <div>
+              <h3 class="blog-item__title">StateFlow vs SharedFlow vs Channel — when to reach for each</h3>
+              <div class="blog-item__meta">
+                <span>composepost.dev</span>
+                <span>· 14 min read</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">AUG 2024</div>
+            <div>
+              <h3 class="blog-item__title">Why we deleted Hilt from our app — and what replaced it</h3>
+              <div class="blog-item__meta">
+                <span>composepost.dev</span>
+                <span>· 9 min read</span>
+                <span>· 2.4k claps</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 13 · TESTIMONIALS ═══════════ -->
+    <section class="section" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>11</div>
+        <span class="eyebrow" data-reveal>Kind words</span>
+        <h2 class="section-title" id="testimonialsTitle" data-reveal>
+          What colleagues &amp; clients <span class="section-title__highlight">say</span>.
+        </h2>
+
+        <div class="testimonials__grid" data-reveal-stagger>
+          <article class="testimonial glass-card">
+            <span class="testimonial__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial__text">
+              Aarav is the rare engineer who can hold a Compose performance regression in one hand
+              and a strategy deck in the other. He rewired half our mobile org and the team came out
+              stronger, not smaller.
+            </p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">MK</div>
+              <div>
+                <div class="testimonial__name">Mei Kobayashi</div>
+                <div class="testimonial__role">VP Engineering · Stealth fintech</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial glass-card">
+            <span class="testimonial__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial__text">
+              He's the only Android contractor I'd re-hire without thinking twice. Treats the
+              Stripe SDK like his own product. Our merchants stopped filing Bluetooth pairing bugs
+              within a quarter.
+            </p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">JC</div>
+              <div>
+                <div class="testimonial__name">Jordan Castillo</div>
+                <div class="testimonial__role">Director of Mobile · Stripe Terminal</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial glass-card">
+            <span class="testimonial__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial__text">
+              I learned more in six months reporting to Aarav than in five years elsewhere. He writes
+              the cleanest Kotlin I've ever reviewed and he takes the time to teach you why it's clean.
+            </p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">PS</div>
+              <div>
+                <div class="testimonial__name">Priya Sundaram</div>
+                <div class="testimonial__role">Senior Android Engineer · ex-Stripe</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial glass-card">
+            <span class="testimonial__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial__text">
+              Aarav shipped one of the most technically mature Android integrations of Google Pay
+              that we reviewed that year. AOSP-level rigour with startup-team pace.
+            </p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">RL</div>
+              <div>
+                <div class="testimonial__name">Ravi Lalwani</div>
+                <div class="testimonial__role">Senior Staff Engineer · Google Pay</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 14 · TECH RADAR ═══════════ -->
+    <section class="section" aria-labelledby="radarTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>12</div>
+        <span class="eyebrow" data-reveal>Tech radar · 2026</span>
+        <h2 class="section-title" id="radarTitle" data-reveal>
+          What I'm <span class="section-title__highlight">using, trialing &amp; holding</span> right now.
+        </h2>
+
+        <div class="radar" data-reveal-stagger>
+          <article class="radar-ring radar-ring--adopt">
+            <div class="radar-ring__label">
+              <span class="radar-ring__dot"></span> Adopt
+            </div>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Battle-tested. I'd reach for it on any new Android codebase today.</p>
+            <div class="radar-ring__list">
+              <span class="chip">Jetpack Compose</span>
+              <span class="chip">Kotlin 2.1 + K2</span>
+              <span class="chip">Coroutines + Flow</span>
+              <span class="chip">SQLDelight</span>
+              <span class="chip">Compose Multiplatform</span>
+              <span class="chip">Baseline Profiles</span>
+            </div>
+          </article>
+
+          <article class="radar-ring radar-ring--trial">
+            <div class="radar-ring__label">
+              <span class="radar-ring__dot"></span> Trial
+            </div>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Promising. We're using it in production behind a feature flag.</p>
+            <div class="radar-ring__list">
+              <span class="chip">Kotlin Symbol Processing 2</span>
+              <span class="chip">LookaheadLayout</span>
+              <span class="chip">Robolectric 5</span>
+              <span class="chip">Compose Hot Reload</span>
+              <span class="chip">Ktor 3</span>
+            </div>
+          </article>
+
+          <article class="radar-ring radar-ring--assess">
+            <div class="radar-ring__label">
+              <span class="radar-ring__dot"></span> Assess
+            </div>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Interesting. Building toy apps, no production commitment yet.</p>
+            <div class="radar-ring__list">
+              <span class="chip">Compose for Web (Wasm)</span>
+              <span class="chip">Kotlin Wasm</span>
+              <span class="chip">Android 16 predictive back</span>
+              <span class="chip">Gemini Nano on-device</span>
+            </div>
+          </article>
+
+          <article class="radar-ring radar-ring--hold">
+            <div class="radar-ring__label">
+              <span class="radar-ring__dot"></span> Hold
+            </div>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);margin-bottom:var(--space-3);">Still recommending we don't use these on greenfield.</p>
+            <div class="radar-ring__list">
+              <span class="chip">Dagger 2 (use KSP)</span>
+              <span class="chip">XML layouts (use Compose)</span>
+              <span class="chip">RxJava (use Flow)</span>
+              <span class="chip">kapt (use KSP)</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 15 · CURRENTLY BUILDING ═══════════ -->
+    <section class="section" aria-labelledby="nowTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>13</div>
+        <span class="eyebrow" data-reveal>Now</span>
+        <h2 class="section-title" id="nowTitle" data-reveal>
+          What I'm <span class="section-title__highlight">building this quarter</span>.
+        </h2>
+
+        <div class="now-card" data-reveal>
+          <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-5);font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--color-brand-3);">
+            <span class="dot"></span> Updated · 3 days ago
+          </div>
+          <div class="now-card__list">
+            <div class="now-item">
+              <div class="now-item__icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </div>
+              <div>
+                <div class="now-item__title">Stealth Bank · Compose migration phase 3</div>
+                <div class="now-item__desc">Migrating the last 8% of legacy XML screens — onboarding, KYC, settings.</div>
+              </div>
+            </div>
+            <div class="now-item">
+              <div class="now-item__icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+              </div>
+              <div>
+                <div class="now-item__title">Writing · "Compose Compiler 2.0 deep-dive"</div>
+                <div class="now-item__desc">A 6,000-word teardown of the new IR backend. Out mid-January.</div>
+              </div>
+            </div>
+            <div class="now-item">
+              <div class="now-item__icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </div>
+              <div>
+                <div class="now-item__title">OSS · compose-snapshot v4</div>
+                <div class="now-item__desc">K2-compatible release with deterministic font rendering &amp; device profiles.</div>
+              </div>
+            </div>
+            <div class="now-item">
+              <div class="now-item__icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+              </div>
+              <div>
+                <div class="now-item__title">Side project · KMP CRM</div>
+                <div class="now-item__desc">Daily-drivering my own CRDT sync layer. Doubles as a teaching repo.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 16 · MENTORSHIP ═══════════ -->
+    <section class="section" aria-labelledby="mentorTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>14</div>
+        <span class="eyebrow" data-reveal>Mentorship</span>
+        <h2 class="section-title" id="mentorTitle" data-reveal>
+          Helping <span class="section-title__highlight">engineers level up</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          I mentor 1:1 with senior engineers moving toward Staff. 42 of them have hit senior+
+          in the last 4 years. Wait-list is open for Q2 2025.
+        </p>
+
+        <div class="arch-dive">
+          <article class="arch-card">
+            <span class="arch-card__label">Format · 01</span>
+            <h3 class="arch-card__title">1:1 · 6-week arc</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Weekly 60-min call · async reviews · personal growth plan · mock system-design interviews.</p>
+            <ul class="arch-card__list">
+              <li>Arch review of a real codebase you ship</li>
+              <li>Resume &amp; LinkedIn rewrite</li>
+              <li>Targeted referrals to my network</li>
+              <li>€2,400 per arc · 6 spots / quarter</li>
+            </ul>
+          </article>
+
+          <article class="arch-card">
+            <span class="arch-card__label">Format · 02</span>
+            <h3 class="arch-card__title">Async code review</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Submit a PR or a sample module. I do a 30-min deep review with a recording. Great if you're not sure yet.</p>
+            <ul class="arch-card__list">
+              <li>Compose / KMP / architecture feedback</li>
+              <li>Annotated Loom video</li>
+              <li>€400 per submission</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 17 · AWARDS & RECOGNITION ═══════════ -->
+    <section class="section" aria-labelledby="awardsTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>15</div>
+        <span class="eyebrow" data-reveal>Awards &amp; recognition</span>
+        <h2 class="section-title" id="awardsTitle" data-reveal>
+          A few <span class="section-title__highlight">moments I'm quietly proud of</span>.
+        </h2>
+
+        <div class="press__grid" data-reveal-stagger>
+          <div class="press-item">
+            <div class="press-item__name">droidcon 🏆</div>
+            <div class="press-item__desc">Best Talk · 2024</div>
+          </div>
+          <div class="press-item">
+            <div class="press-item__name">GitHub 🏆</div>
+            <div class="press-item__desc">Stellar Maintainer · 2023</div>
+          </div>
+          <div class="press-item">
+            <div class="press-item__name">KotlinConf 🏆</div>
+            <div class="press-item__desc">Top 5 Speaker · 2024</div>
+          </div>
+          <div class="press-item">
+            <div class="press-item__name">Google ⭐</div>
+            <div class="press-item__desc">GDE since 2020</div>
+          </div>
+          <div class="press-item">
+            <div class="press-item__name">Compose Post ⭐</div>
+            <div class="press-item__desc">Top 10 Android Newsletter · 2024</div>
+          </div>
+          <div class="press-item">
+            <div class="press-item__name">Android Police ⭐</div>
+            <div class="press-item__desc">Featured dev · 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 18 · DEV SETUP / WORKSPACE ═══════════ -->
+    <section class="section" aria-labelledby="setupTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>16</div>
+        <span class="eyebrow" data-reveal>Workspace</span>
+        <h2 class="section-title" id="setupTitle" data-reveal>
+          My <span class="section-title__highlight">2026 dev setup</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal">The desk, the gear, the software. Updated January 2026.</p>
+
+        <div class="setup__grid" data-reveal-stagger>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">💻</span>
+            <h3 class="setup-item__title">MacBook Pro 16" M4 Max</h3>
+            <p class="setup-item__desc">64 GB · 2 TB · ProMotion</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">📱</span>
+            <h3 class="setup-item__title">Pixel 9 Pro</h3>
+            <p class="setup-item__desc">Primary test device</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">⌨️</span>
+            <h3 class="setup-item__title">Keychron Q1 Pro</h3>
+            <p class="setup-item__desc">Brown switches · QMK</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🖱️</span>
+            <h3 class="setup-item__title">Logitech MX Master 3S</h3>
+            <p class="setup-item__desc">Free-spin scroll wheel</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🎧</span>
+            <h3 class="setup-item__title">Sony WH-1000XM5</h3>
+            <p class="setup-item__desc">Deep-focus mode</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🪑</span>
+            <h3 class="setup-item__title">Herman Miller Aeron</h3>
+            <p class="setup-item__desc">Size B · posture-correct</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🖥️</span>
+            <h3 class="setup-item__title">LG UltraFine 5K ×2</h3>
+            <p class="setup-item__desc">5120 × 2880 · side by side</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🧰</span>
+            <h3 class="setup-item__title">Software</h3>
+            <p class="setup-item__desc">IntelliJ · Android Studio Ladybug · Linear · Raycast · Arc</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 19 · CODE PHILOSOPHY ═══════════ -->
+    <section class="section" aria-labelledby="philoTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>17</div>
+        <span class="eyebrow" data-reveal>Code philosophy</span>
+        <h2 class="section-title" id="philoTitle" data-reveal>
+          How I <span class="section-title__highlight">think about code</span>.
+        </h2>
+
+        <div class="arch-dive">
+          <article class="arch-card">
+            <span class="arch-card__label">Principle · 01</span>
+            <h3 class="arch-card__title">Boring code wins.</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Cleverness is a tax on your colleagues. Prefer the obvious answer that someone can debug at 3am.</p>
+          </article>
+          <article class="arch-card">
+            <span class="arch-card__label">Principle · 02</span>
+            <h3 class="arch-card__title">Make the change easy, then make the easy change.</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Kent Beck. Most "hard" problems are caused by an earlier short-cut.</p>
+          </article>
+          <article class="arch-card">
+            <span class="arch-card__label">Principle · 03</span>
+            <h3 class="arch-card__title">Optimise for the next reader.</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">You write code once. Someone else reads it a hundred times. Name accordingly.</p>
+          </article>
+          <article class="arch-card">
+            <span class="arch-card__label">Principle · 04</span>
+            <h3 class="arch-card__title">Delete code. Then delete more.</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Every line you ship is a line someone has to maintain. The empty line is the only one that costs nothing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 20 · BOOKS & READING ═══════════ -->
+    <section class="section" aria-labelledby="booksTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>18</div>
+        <span class="eyebrow" data-reveal>Reading</span>
+        <h2 class="section-title" id="booksTitle" data-reveal>
+          Books that <span class="section-title__highlight">shaped me as an engineer</span>.
+        </h2>
+
+        <div class="skills__grid" data-reveal-stagger>
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">📕</div>
+            <h3 class="skill-card__title">A Philosophy of Software Design</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">John Ousterhout. Re-read every year. The "deep vs. shallow modules" framing alone is worth the cover price.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">📗</div>
+            <h3 class="skill-card__title">Designing Data-Intensive Applications</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Martin Kleppmann. The bible for anyone touching offline sync, queues or CRDTs.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">📘</div>
+            <h3 class="skill-card__title">Staff Engineer</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Tanya Reilly. The book I wish existed when I made senior. Read it before, not after, your promo.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card__icon" aria-hidden="true">📙</div>
+            <h3 class="skill-card__title">The Pragmatic Programmer (20th)</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Hunt &amp; Thomas. The 20th anniversary edition. Still the most readable tour of an engineering career.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 21 · SIDE PROJECTS ═══════════ -->
+    <section class="section" aria-labelledby="sideTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>19</div>
+        <span class="eyebrow" data-reveal>Side projects</span>
+        <h2 class="section-title" id="sideTitle" data-reveal>
+          Things I tinker on <span class="section-title__highlight">at the edge of the weekend</span>.
+        </h2>
+
+        <div class="projects__grid">
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">OSS</span>
+              <span class="badge"><span class="dot"></span>v0.7</span>
+            </div>
+            <h3 class="project__title">focus-android</h3>
+            <p class="project__desc">Pomodoro timer for Android, built entirely with Compose. Strict 16ms frame budget, no frame drops on a Pixel 3a.</p>
+            <div class="project__chips">
+              <span class="chip">Compose</span><span class="chip">Material 3</span><span class="chip">Open Source</span>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">Personal</span>
+              <span class="badge badge--cyan"><span class="dot"></span>Daily driver</span>
+            </div>
+            <h3 class="project__title">Second-brain · KMP</h3>
+            <p class="project__desc">My personal CRM and notes app. 88% shared KMP code, end-to-end encrypted, works offline indefinitely.</p>
+            <div class="project__chips">
+              <span class="chip">KMP</span><span class="chip">CRDT</span><span class="chip">SQLDelight</span>
+            </div>
+          </article>
+
+          <article class="project glass-card">
+            <div class="project__preview" aria-hidden="true"></div>
+            <div class="project__meta">
+              <span class="project__category">OSS</span>
+              <span class="badge badge--pink"><span class="dot"></span>Archived</span>
+            </div>
+            <h3 class="project__title">flow-preferences</h3>
+            <p class="project__desc">The first library I ever shipped. Now archived — DataStore does this natively and better.</p>
+            <div class="project__chips">
+              <span class="chip">Kotlin</span><span class="chip">Coroutines</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 22 · COMMUNITY ═══════════ -->
+    <section class="section" aria-labelledby="communityTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>20</div>
+        <span class="eyebrow" data-reveal>Community</span>
+        <h2 class="section-title" id="communityTitle" data-reveal>
+          How I <span class="section-title__highlight">show up for the community</span>.
+        </h2>
+
+        <div class="arch-dive">
+          <article class="arch-card">
+            <span class="arch-card__label">Initiative · 01</span>
+            <h3 class="arch-card__title">Berlin Android Meetup · co-organiser</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">600+ members. 1 talk / month, free, recorded, captioned. We've been running since 2019.</p>
+          </article>
+          <article class="arch-card">
+            <span class="arch-card__label">Initiative · 02</span>
+            <h3 class="arch-card__title">Compose Post newsletter</h3>
+            <p style="font-size:var(--fs-sm);color:var(--color-text-muted);">Free, ad-free, long-form. ~4,200 senior Android engineers read it.</p>
+          </article>
+          <article class="arch-card">
+            <span class="arch-card__label">Initiative · 03</span>
+            <h3 class="arch-card__title">Open-source triage rota</h3>
+            <p style="font-size:var(--font-sm);color:var(--color-text-muted);">4-hour weekly slot, responding to issues across my libraries and ~20 others I depend on.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 23 · PRESS / FEATURES ═══════════ -->
+    <section class="section" aria-labelledby="pressTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>21</div>
+        <span class="eyebrow" data-reveal>Press &amp; features</span>
+        <h2 class="section-title" id="pressTitle" data-reveal>
+          Featured in <span class="section-title__highlight">the Android press</span>.
+        </h2>
+
+        <div class="blog__list" data-reveal-stagger>
+          <article class="blog-item">
+            <div class="blog-item__date">2024</div>
+            <div>
+              <h3 class="blog-item__title">"The Modular Monolith, Compose-First" — Android Police feature</h3>
+              <div class="blog-item__meta">
+                <span>androidpolice.com</span>
+                <span>· 18k reads</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">2024</div>
+            <div>
+              <h3 class="blog-item__title">Podcast guest · "Talking Kotlin" episode 84</h3>
+              <div class="blog-item__meta">
+                <span>talkingkotlin.com</span>
+                <span>· 22k listens</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+          <article class="blog-item">
+            <div class="blog-item__date">2023</div>
+            <div>
+              <h3 class="blog-item__title">Quoted in The Pragmatic Engineer Newsletter</h3>
+              <div class="blog-item__meta">
+                <span>newsletter.pragmaticengineer.com</span>
+                <span>· "Inside Stripe's mobile org"</span>
+              </div>
+            </div>
+            <div class="blog-item__arrow">→</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 24 · ENDORSEMENTS (LinkedIn-style) ═══════════ -->
+    <section class="section" aria-labelledby="endorseTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>22</div>
+        <span class="eyebrow" data-reveal>Endorsements</span>
+        <h2 class="section-title" id="endorseTitle" data-reveal>
+          Skills <span class="section-title__highlight">endorsed by senior peers</span>.
+        </h2>
+
+        <div class="skills__grid" data-reveal-stagger>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Jetpack Compose</h3>
+            <p style="font-size:var(--fs-xs);color:var(--color-text-dim);font-family:var(--font-mono);">42 endorsements</p>
+            <div class="skill-card__list" style="margin-top:var(--space-3);">
+              <span class="chip">Ravi L.</span><span class="chip">Mei K.</span><span class="chip">Jordan C.</span><span class="chip">Priya S.</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Android Architecture</h3>
+            <p style="font-size:var(--fs-xs);color:var(--color-text-dim);font-family:var(--font-mono);">38 endorsements</p>
+            <div class="skill-card__list" style="margin-top:var(--space-3);">
+              <span class="chip">Tanya R.</span><span class="chip">Sam T.</span><span class="chip">Jules M.</span><span class="chip">+35</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Kotlin Multiplatform</h3>
+            <p style="font-size:var(--fs-xs);color:var(--color-text-dim);font-family:var(--font-mono);">21 endorsements</p>
+            <div class="skill-card__list" style="margin-top:var(--space-3);">
+              <span class="chip">Kevin G.</span><span class="chip">Ruslan B.</span><span class="chip">+19</span>
+            </div>
+          </article>
+          <article class="skill-card">
+            <h3 class="skill-card__title">Mobile Performance</h3>
+            <p style="font-size:var(--fs-xs);color:var(--color-text-dim);font-family:var(--font-mono);">29 endorsements</p>
+            <div class="skill-card__list" style="margin-top:var(--space-3);">
+              <span class="chip">Katherine F.</span><span class="chip">Lukas W.</span><span class="chip">+27</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 25 · CAREER TIMELINE (numeric) ═══════════ -->
+    <section class="section" aria-labelledby="careerTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>23</div>
+        <span class="eyebrow" data-reveal>Career arc</span>
+        <h2 class="section-title" id="careerTitle" data-reveal>
+          Nine years, <span class="section-title__highlight">one upward curve</span>.
+        </h2>
+
+        <div class="timeline" data-reveal-stagger>
+          <div class="timeline__item">
+            <div class="timeline__period">2015</div>
+            <h3 class="timeline__role">Junior Android Developer</h3>
+            <p class="timeline__desc">First production app · first commit to a public repo · first StackOverflow answer.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__period">2017</div>
+            <h3 class="timeline__role">Mid-level · tech lead on a 3-engineer squad</h3>
+            <p class="timeline__desc">First time reviewing PRs · first time an architecture decision bit us · first time we recovered.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__period">2019</div>
+            <h3 class="timeline__role">Senior · joined Revolut Crypto</h3>
+            <p class="timeline__desc">First time owning a product surface end-to-end · first time hiring engineers · first time firing one.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__period">2021</div>
+            <h3 class="timeline__role">Joined Stripe · SDK tech-lead</h3>
+            <p class="timeline__desc">First time working on code other engineers embed in their apps · first time API stability really mattered.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__period">2024</div>
+            <h3 class="timeline__role">Staff-equivalent at Stealth</h3>
+            <p class="timeline__desc">9 engineers reporting in · 47 modules · a Compose migration story I'll be telling for years.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 26 · BEYOND CODE (HOBBIES) ═══════════ -->
+    <section class="section" aria-labelledby="hobbiesTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>24</div>
+        <span class="eyebrow" data-reveal>Beyond code</span>
+        <h2 class="section-title" id="hobbiesTitle" data-reveal>
+          What I do <span class="section-title__highlight">when the laptop closes</span>.
+        </h2>
+
+        <div class="setup__grid" data-reveal-stagger>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🏃</span>
+            <h3 class="setup-item__title">Long-distance running</h3>
+            <p class="setup-item__desc">2 marathons · sub-3 goal in 2026</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">📷</span>
+            <h3 class="setup-item__title">35mm film photography</h3>
+            <p class="setup-item__desc">Pentax K1000 · mostly street &amp; architecture</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🎸</span>
+            <h3 class="setup-item__title">Indie folk guitar</h3>
+            <p class="setup-item__desc">Currently learning Adrianne Lenker</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">☕</span>
+            <h3 class="setup-item__title">Speciality coffee</h3>
+            <p class="setup-item__desc">V60 · hand-grinder · pour-over obsessive</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">🪴</span>
+            <h3 class="setup-item__title">Houseplants</h3>
+            <p class="setup-item__desc">Currently 14 alive · 3 RIP</p>
+          </article>
+          <article class="setup-item">
+            <span class="setup-item__icon" aria-hidden="true">📚</span>
+            <h3 class="setup-item__title">Reading non-fiction</h3>
+            <p class="setup-item__desc">Currently: "The Mom Test"</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 27 · NEWSLETTER CTA ═══════════ -->
+    <section class="section section--tight" aria-labelledby="newsletterTitle">
+      <div class="container">
+        <div class="glass-card" style="text-align:center;padding:clamp(2rem, 6vw, 4rem);" data-reveal="scale">
+          <div class="section-marker" style="margin-inline:auto;">25</div>
+          <span class="eyebrow" style="justify-content:center;display:inline-flex;">The Compose Post · free</span>
+          <h2 id="newsletterTitle" class="section-title" style="max-width:22ch;margin-inline:auto;">
+            One long-form essay <span class="section-title__highlight">every other Sunday</span>.
+          </h2>
+          <p style="margin:0 auto var(--space-6);max-width:48ch;font-size:var(--fs-md);">
+            Compose internals, KMP field reports, architecture patterns. Read by 4,200 senior
+            Android engineers. Free, ad-free, no upsells.
+          </p>
+          <form style="display:flex;gap:var(--space-3);max-width:480px;margin:0 auto var(--space-4);flex-wrap:wrap;justify-content:center;" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Subscribed';">
+            <input type="email" required placeholder="you@android.dev" style="flex:1 1 240px;padding:0.875rem 1.25rem;font-size:var(--fs-sm);background:var(--color-bg-elevated);border:1px solid var(--color-line);border-radius:var(--radius-full);color:var(--color-text);outline:none;" />
+            <button type="submit" class="btn btn--primary">Subscribe →</button>
+          </form>
+          <p style="font-size:var(--fs-xs);color:var(--color-text-dim);font-family:var(--font-mono);">No spam. Unsubscribe in one click.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 28 · CONTACT ═══════════ -->
+    <section class="section" id="contact" data-section data-section-name="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="section-marker" data-reveal>26</div>
+        <span class="eyebrow" data-reveal>Contact</span>
+        <h2 class="section-title" id="contactTitle" data-reveal>
+          Let's <span class="section-title__highlight">build something together</span>.
+        </h2>
+        <p class="section-subtitle" data-reveal>
+          I'm selectively open to Staff / Lead Android roles in Berlin, London, Amsterdam or
+          remote-first European teams. I'm also taking on two contract advisory engagements per quarter.
+        </p>
+
+        <div class="contact__grid">
+          <div data-reveal="left">
+            <h3 style="font-size:var(--fs-lg);color:var(--color-text-strong);margin-bottom:var(--space-4);">Direct channels</h3>
+
+            <div class="contact__channels">
+              <a class="contact-channel" href="mailto:hello@aarav.dev">
+                <div class="contact-channel__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+                </div>
+                <div>
+                  <div class="contact-channel__label">Email</div>
+                  <div class="contact-channel__value">hello@aarav.dev</div>
+                </div>
+              </a>
+              <a class="contact-channel" href="#">
+                <div class="contact-channel__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div>
+                  <div class="contact-channel__label">LinkedIn</div>
+                  <div class="contact-channel__value">/in/aaravkapoor</div>
+                </div>
+              </a>
+              <a class="contact-channel" href="#">
+                <div class="contact-channel__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                </div>
+                <div>
+                  <div class="contact-channel__label">GitHub</div>
+                  <div class="contact-channel__value">github.com/aaravk</div>
+                </div>
+              </a>
+              <a class="contact-channel" href="#">
+                <div class="contact-channel__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                </div>
+                <div>
+                  <div class="contact-channel__label">Twitter · X</div>
+                  <div class="contact-channel__value">@aaravk_dev</div>
+                </div>
+              </a>
+            </div>
+
+            <div style="padding:var(--space-5);border-radius:var(--radius-md);background:rgba(127,82,255,0.05);border:1px solid rgba(127,82,255,0.2);font-size:var(--fs-sm);color:var(--color-text-muted);">
+              <strong style="color:var(--color-text-strong);">Currently:</strong>
+              <span style="color:var(--color-brand-3);">●</span> Open to Staff Android roles ·
+              <span style="color:var(--color-brand-3);">●</span> Two advisory slots free Q2 2025 ·
+              <span style="color:var(--color-brand-3);">●</span> Speaking at droidcon NYC
+            </div>
+          </div>
+
+          <form class="contact-form" data-reveal="right" onsubmit="event.preventDefault();this.querySelector('button[type=submit]').textContent='✓ Sent · I\\'ll reply within 48h';">
+            <h3 style="font-size:var(--fs-lg);color:var(--color-text-strong);margin-bottom:var(--space-4);">Send a brief</h3>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" type="text" placeholder="Ada Lovelace" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="ada@company.com" required />
+            </div>
+            <div class="field">
+              <label for="company">Company / role</label>
+              <input id="company" type="text" placeholder="Staff Android Engineer · Acme Co" />
+            </div>
+            <div class="field">
+              <label for="message">The brief</label>
+              <textarea id="message" placeholder="What are you trying to ship? What does success look like?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" style="align-self:flex-start;">
+              Send it
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ 29 · FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#hero" class="nav__brand" aria-label="Aarav Kapoor">
+            <span class="nav__logo">AK</span>
+            <span class="nav__brand-text">
+              <span>Aarav Kapoor</span>
+              <small>Senior Android Engineer</small>
+            </span>
+          </a>
+          <p style="font-size:var(--fs-sm);color:var(--color-text-muted);max-width:38ch;">
+            Available for select Staff &amp; Lead Android engagements across Europe and remote-first teams.
+          </p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigate</div>
+          <ul class="footer__list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Beyond</div>
+          <ul class="footer__list">
+            <li><a href="#opensource">Open Source</a></li>
+            <li><a href="#writing">Newsletter</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Resume.pdf</a></li>
+            <li><a href="#">RSS</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Find me</div>
+          <ul class="footer__list">
+            <li><a href="#">GitHub · @aaravk</a></li>
+            <li><a href="#">LinkedIn · /in/aaravkapoor</a></li>
+            <li><a href="#">Twitter · @aaravk_dev</a></li>
+            <li><a href="mailto:hello@aarav.dev">hello@aarav.dev</a></li>
+            <li><a href="#">Mastodon · @aarav@androiddev.social</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Aarav Kapoor · Hand-built in Berlin · <kbd class="kbd">⌘</kbd> + <kbd class="kbd">K</kbd> to jump</span>
+        <span>Last updated · January 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Command palette (⌘K) ─────────────────────────── -->
+  <div id="palette" hidden style="position:fixed;inset:0;z-index:var(--z-modal);display:grid;place-items:flex-start center;padding-top:12vh;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);">
+    <div style="width:min(560px,90vw);background:var(--color-surface);border:1px solid var(--color-line-strong);border-radius:var(--radius-xl);padding:var(--space-3);">
+      <input id="paletteInput" type="text" placeholder="Jump to…" style="width:100%;padding:0.75rem 1rem;font-size:var(--fs-md);background:var(--color-bg-elevated);border:1px solid var(--color-line);border-radius:var(--radius-md);color:var(--color-text);outline:none;font-family:var(--font-sans);" />
+      <div id="paletteResults" style="margin-top:var(--space-3);max-height:50vh;overflow:auto;"></div>
+    </div>
+  </div>
+
+  <!-- ── App · vanilla JS · Lenis-style smooth scroll + scroll-spy + animations ── -->
+  <script src="js/portfolio.js" defer></script>
+</body>
+</html>
